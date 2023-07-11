@@ -7,9 +7,10 @@
 class Facade
 {
 public:
-    explicit Facade(std::unique_ptr<Subsystem1> new_subsystem_1, std::unique_ptr<Subsystem2> new_subsystem_2);
-    std::string operation();
+    explicit Facade(const std::shared_ptr<Subsystem1>& new_subsystem_1,
+                    const std::shared_ptr<Subsystem2>& new_subsystem_2);
+    [[nodiscard]] std::string operation();
 private:
-    std::unique_ptr<Subsystem1> subsystem1;
-    std::unique_ptr<Subsystem2> subsystem2;
+    std::shared_ptr<Subsystem1> subsystem1;
+    std::shared_ptr<Subsystem2> subsystem2;
 };

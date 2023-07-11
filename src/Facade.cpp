@@ -1,9 +1,9 @@
 #include "../include/Facade.hpp"
 
-Facade::Facade(std::unique_ptr<Subsystem1> new_subsystem_1, std::unique_ptr<Subsystem2> new_subsystem_2)
-        : subsystem1{std::move(new_subsystem_1)}, subsystem2{std::move(new_subsystem_2)}
-{
-}
+Facade::Facade(const std::shared_ptr<Subsystem1>& new_subsystem_1,
+               const std::shared_ptr<Subsystem2>& new_subsystem_2)
+        : subsystem1{new_subsystem_1}, subsystem2{new_subsystem_2}
+{}
 
 std::string Facade::operation()
 {
