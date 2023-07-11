@@ -7,9 +7,9 @@
 class Facade
 {
 public:
-    explicit Facade(std::unique_ptr<Subsystem1> subsystem_1 = nullptr, std::unique_ptr<Subsystem2> subsystem_2 = nullptr);
+    explicit Facade(std::unique_ptr<Subsystem1> new_subsystem_1, std::unique_ptr<Subsystem2> new_subsystem_2);
     std::string operation();
-protected:
+private:
     std::unique_ptr<Subsystem1> subsystem1;
     std::unique_ptr<Subsystem2> subsystem2;
 };
